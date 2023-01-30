@@ -91,13 +91,12 @@ storiesOf("InterviewerList", module)
   })
   .add("Initial", () => <InterviewerList interviewers={interviewers} />)
   .add("Selected", () => (
-    <InterviewerList interviewers={interviewers} value={3} />
+    <InterviewerList interviewers={interviewers} interviewer={3} />
   ))
   .add("Clickable", () => (
     <InterviewerList
-      key={interviewers.id}
       interviewers={interviewers}
-      onChange={action("setCurrentInterviewerID")}
+      setInterviewer={action("setCurrentInterviewerID")}
     />
   ));
 
@@ -110,7 +109,7 @@ storiesOf("Appointment", module)
   .add("Header", () => <Header time="12pm" />)
   .add("Empty", () => <Empty onAdd={action("onAdd")} />)
   .add("Show", () => (
-    <Show onEdit={action("onEdit")} onDelete={action("onDelete")} />
+    <Show student={"Lydia Miller-Jones"} interviewer={"Sylvia Palmer"} onEdit={action("onEdit")} onDelete={action("onDelete")} />
   ))
   .add("Confirm", () => (
     <Confirm onConfirm={action("onConfirm")} onCancel={action("onCancel")} />
