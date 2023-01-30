@@ -38,13 +38,13 @@ const days = [
 
 storiesOf("Button", module)
   .addParameters({
-    backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
+    backgrounds: [{ name: "dark", value: "#222f3e", default: true }],
   })
   .add("Base", () => <Button onClick>Base</Button>)
   .add("Confirm", () => <Button confirm>Confirm</Button>)
   .add("Danger", () => <Button danger>Cancel</Button>)
   .add("Clickable", () => (
-    <Button onClick={action('button-clicked')}>Clickable</Button>
+    <Button onClick={action("button-clicked")}>Clickable</Button>
   ))
   .add("Disabled", () => (
     <Button disabled onClick={action("button-clicked")}>
@@ -52,10 +52,9 @@ storiesOf("Button", module)
     </Button>
   ));
 
-
-  storiesOf("DayListItem", module)
+storiesOf("DayListItem", module)
   .addParameters({
-    backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
+    backgrounds: [{ name: "dark", value: "#222f3e", default: true }],
   })
   .add("Unselected", () => <DayListItem name="Monday" spots={5} />)
   .add("Selected", () => <DayListItem name="Monday" spots={5} selected />)
@@ -63,7 +62,6 @@ storiesOf("Button", module)
   .add("Clickable", () => (
     <DayListItem name="Tuesday" setDay={action("setDay")} spots={5} />
   ));
-
 
 storiesOf("DayList", module)
   .addParameters({
@@ -79,29 +77,21 @@ storiesOf("DayList", module)
     <DayList days={days} value={"Wednesday"} onChange={action("setDay")} />
   ));
 
-
 const interviewers = [
   { id: 1, name: "Sylvia Palmer", avatar: "https://i.imgur.com/LpaY82x.png" },
   { id: 2, name: "Tori Malcolm", avatar: "https://i.imgur.com/Nmx0Qxo.png" },
   { id: 3, name: "Mildred Nazir", avatar: "https://i.imgur.com/T2WwVfS.png" },
   { id: 4, name: "Cohana Roy", avatar: "https://i.imgur.com/FK8V841.jpg" },
-  { id: 5, name: "Sven Jones", avatar: "https://i.imgur.com/twYrpay.jpg" }
+  { id: 5, name: "Sven Jones", avatar: "https://i.imgur.com/twYrpay.jpg" },
 ];
 
 storiesOf("InterviewerList", module)
   .addParameters({
-    backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
+    backgrounds: [{ name: "dark", value: "#222f3e", default: true }],
   })
-  .add("Initial", () => (
-    <InterviewerList
-      interviewers={interviewers}
-    />
-  ))
+  .add("Initial", () => <InterviewerList interviewers={interviewers} />)
   .add("Selected", () => (
-    <InterviewerList
-      interviewers={interviewers}
-      value={3}
-    />
+    <InterviewerList interviewers={interviewers} value={3} />
   ))
   .add("Clickable", () => (
     <InterviewerList
@@ -111,43 +101,22 @@ storiesOf("InterviewerList", module)
     />
   ));
 
-
 storiesOf("Appointment", module)
   .addParameters({
-    backgrounds: [{ name: "white", value: "#fff", default: true }]
+    backgrounds: [{ name: "white", value: "#fff", default: true }],
   })
   .add("Appointment", () => <Appointment />)
   .add("Appointment with Time", () => <Appointment time="12pm" />)
-  .add("Header", () =>
-    <Header
-      time="12pm"
-    />)
-  .add("Empty", () => (
-    <Empty
-      onAdd={action("onAdd")}
-    />
-  ))
+  .add("Header", () => <Header time="12pm" />)
+  .add("Empty", () => <Empty onAdd={action("onAdd")} />)
   .add("Show", () => (
-    <Show
-      onEdit={action("onEdit")}
-      onDelete={action("onDelete")}
-    />
+    <Show onEdit={action("onEdit")} onDelete={action("onDelete")} />
   ))
   .add("Confirm", () => (
-    <Confirm
-      onConfirm={action("onConfirm")}
-      onCancel={action("onCancel")}
-    />
+    <Confirm onConfirm={action("onConfirm")} onCancel={action("onCancel")} />
   ))
-  .add("Status", () => (
-    <Status
-    />
-  ))
-  .add("Error", () => (
-    <Error
-      onClose={action("onClose")}
-    />
-  ))
+  .add("Status", () => <Status />)
+  .add("Error", () => <Error onClose={action("onClose")} />)
   .add("Create", () => (
     <Form
       interviewers={interviewers}
@@ -179,4 +148,4 @@ storiesOf("Appointment", module)
       />
       <Appointment time="5pm" />
     </Fragment>
-  ))
+  ));
