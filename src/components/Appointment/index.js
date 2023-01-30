@@ -30,14 +30,13 @@ export default function Appointment(props) {
       student: name,
       interviewer
     };
+
     props
       .bookInterview(props.id, interview)
       .then((_) => transition(SHOW))
       .catch(
-        (error) => {
-          transition(ERROR_SAVE, true)
-        }); // wait until server update => transition
-
+        (error) => {transition(ERROR_SAVE, true)});
+        // wait until server update => transition
   }
 
   function onEdit() {
@@ -49,7 +48,7 @@ export default function Appointment(props) {
   }
 
   function deleteApp(id) {
-    transition(DELETING);
+    transition(DELETING, true);
     props
       .cancelInterview(props.id)
       .then(() => transition(EMPTY))
@@ -106,6 +105,7 @@ export default function Appointment(props) {
       )}
       {mode === ERROR_DELETE && (
         <Error message="Could not cancel appointment."
+        onClose={back}
         />
       )}
 

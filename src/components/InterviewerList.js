@@ -16,7 +16,7 @@ export default function InterviewerList(props) {
           props.setInterviewer(interviewer.id);
         }}
       />
-    )
+    );
   });
 
   return (

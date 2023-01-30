@@ -18,6 +18,23 @@ import Error from "components/Appointment/Error";
 import Form from "components/Appointment/Form";
 import Header from "components/Appointment/Header";
 
+const days = [
+  {
+    id: 1,
+    name: "Monday",
+    spots: 2,
+  },
+  {
+    id: 2,
+    name: "Tuesday",
+    spots: 5,
+  },
+  {
+    id: 3,
+    name: "Wednesday",
+    spots: 0,
+  },
+];
 
 storiesOf("Button", module)
   .addParameters({
@@ -36,15 +53,15 @@ storiesOf("Button", module)
   ));
 
 
-storiesOf("DayListItem", module)
+  storiesOf("DayListItem", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
   })
-  .add("Unselected", () => <DayListItem name="Monday" spots={5} setDay={() => { }} />)
-  .add("Selected", () => <DayListItem name="Monday" spots={5} selected setDay={() => { }} />)
-  .add("Full", () => <DayListItem name="Monday" spots={0} setDay={() => { }} />)
+  .add("Unselected", () => <DayListItem name="Monday" spots={5} />)
+  .add("Selected", () => <DayListItem name="Monday" spots={5} selected />)
+  .add("Full", () => <DayListItem name="Monday" spots={0} />)
   .add("Clickable", () => (
-    <DayListItem name="Tuesday" setDay={(dayName) => action({ dayName })} spots={5} />
+    <DayListItem name="Tuesday" setDay={action("setDay")} spots={5} />
   ));
 
 

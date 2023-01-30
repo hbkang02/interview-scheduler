@@ -10,9 +10,13 @@ export default function Form(props) {
 
 
   function reset() {
-    props.onCancel();
     setStudent("");
     setInterviewer(null);
+  }
+
+  function cancel() {
+    reset();
+    props.onCancel();
   }
 
   function validate() {
@@ -34,9 +38,7 @@ export default function Form(props) {
       <section className="appointment__card-left">
         <form autoComplete="off" onSubmit={event => event.preventDefault()}>
           <input
-            defaultValue={
-              props.student ? props.student : ""
-            }
+            value={student}
             className="appointment__create-input text--semi-bold"
             name="name"
             type="text"
@@ -54,7 +56,7 @@ export default function Form(props) {
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
-          <Button onClick={() => reset()} danger>Cancel</Button>
+          <Button onClick={ cancel } danger>Cancel</Button>
           <Button onClick={() => validate(student, interviewer)} confirm >Save</Button>
         </section>
       </section>
